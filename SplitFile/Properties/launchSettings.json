@@ -2,7 +2,7 @@
   "profiles": {
     "SplitFile": {
       "commandName": "Project",
-      "commandLineArgs": "-f C:\\Users\\afoolen\\source\\repos\\SplitFile\\SplitFile\\bin\\Debug\\net6.0\\VideoPlayerApp.zip -s 70000 -sequential"
+      "commandLineArgs": "-f \"C:\\Users\\HP-OMEN\\Documents\\Visual Studio 2019\\Git\\SplitFile\\SplitFile\\bin\\Debug\\net6.0\\SplitFile.exe\" -t \"C:\\Users\\HP-OMEN\\Documents\\Visual Studio 2019\\Git\\SplitFile\\SplitFile\\bin\\Debug\\net6.0\\SplitFile2.exe\""
     }
   }
 }

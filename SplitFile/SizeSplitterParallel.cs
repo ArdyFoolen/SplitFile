@@ -67,32 +67,17 @@ namespace SplitFile
 
             private async Task ExecutePart(int partNbr)
             {
-                string destination = DestinationFilePath;
-                byte[] buffer = new byte[4000];
-                int read;
-                int length;
-                using (var reader = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
+                long position = (partNbr - 1) * Size;
+                var writerPath = $"{DestinationFilePath}.{partNbr}";
+                using (var flow = new FlowStream(
+                    new FileStream(FilePath, FileMode.Open, FileAccess.Read),
+                    new FileStream(writerPath, FileMode.Create, FileAccess.Write)
+                    ))
                 {
-                    long position = (partNbr - 1) * Size;
-                    if (reader.Length > position)
-                    {
-                        reader.Seek(position, SeekOrigin.Begin);
-                        var writerPath = $"{destination}.{partNbr}";
-                        using (var writer = new FileStream(writerPath, FileMode.Create, FileAccess.Write))
-                        {
-                            int partRead = 0;
-                            do
-                            {
-                                length = buffer.Length < (int)(Size - partRead) ? buffer.Length : (int)(Size - partRead);
-                                read = await reader.ReadAsync(buffer, 0, length);
-                                partRead += read;
-
-                                await writer.WriteAsync(buffer, 0, read);
-                            } while (read == length && partRead < Size);
-                        }
-                    }
+                    await flow.FlowAsync(position, Size);
                 }
             }
+
         }
     }
 }
