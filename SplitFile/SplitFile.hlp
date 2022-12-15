@@ -1,0 +1,15 @@
+﻿SplitFile usage: SplitFile <arguments> [<parameters>]
+
+    Note: <arguments> and <parameters> are case insensitive
+
+Where <arguments> is one of:
+    -?, -h, -help, -f, -file, -s, -size, -t, -target
+
+Details <arguments>:
+    -? | -h | -help           -- Show this helpscreen, any other arguments are ignored
+
+    -f | -file <parameters>   -- File path name
+    -s | -size <parameters>   -- Split file in multiple parts of Size
+    -t | -target <parameters> -- Combine file splits into target
+    -sequential               -- When splitting, split all parts sequentially
+                                 Default run in parallel

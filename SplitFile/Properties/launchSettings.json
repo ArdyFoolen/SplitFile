@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SplitFile": {
+      "commandName": "Project",
+      "commandLineArgs": "-f C:\\Users\\afoolen\\source\\repos\\SplitFile\\SplitFile\\bin\\Debug\\net6.0\\VideoPlayerApp.zip -s 70000 -sequential"
+    }
+  }
+}
